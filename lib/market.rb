@@ -36,7 +36,9 @@ class Market
     quantities = @vendors.map do |vendor|
       vendor.inventory.values
     end.flatten
-    total_inventory = Hash[inventory.zip quantities]
+    total_inventory = Hash[inventory.zip quantities] #first attempt
+    #second attempt: Hash[inventory.each_with_object(nil).to_a] => {"Peaches"=>nil, "Tomatoes"=>nil, "Banana Nice Cream"=>nil, "Peach-Raspberry Nice Cream"=>nil}
+    #third attempt: Hash[inventory.product([nil])] => {"Peaches"=>nil, "Tomatoes"=>nil, "Banana Nice Cream"=>nil, "Peach-Raspberry Nice Cream"=>nil}
   end
 
 end

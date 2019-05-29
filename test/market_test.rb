@@ -58,7 +58,7 @@ class MarketTest < MiniTest::Test
   end
 
   def test_total_inventory
-    skip
+    
     @market.add_vendors(@vendor_1)
     @market.add_vendors(@vendor_2)
     @market.add_vendors(@vendor_3)
