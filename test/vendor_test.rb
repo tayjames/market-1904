@@ -13,4 +13,21 @@ class VendorTest < MiniTest::Test
     assert_instance_of Vendor, @vendor
   end
 
+  def test_vendor_attributes
+    assert_equal "Rocky Mountain Fresh", @vendor.name
+    expected = {}
+    assert_equal expected, @vendor.inventory
+  end
+
+  def test_check_stock
+    assert_equal 0, @vendor.check_stock("Peaches")
+
+  end
+
+  def test_stock
+    @vendor.stock("Peaches", 55)
+    expected = {"Peaches"=>55}
+    assert_equal expected, @vendor.inventory
+  end
+
 end
